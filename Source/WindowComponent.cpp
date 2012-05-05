@@ -846,13 +846,14 @@ void WindowComponent::changeRenderingEngine(const String& newEngine)
     {
         getPeer()->setCurrentRenderingEngine (1);
     }
-    lblRenderer->setText(newEngine, false);
+    currentEngine = newEngine;
+    lblRenderer->setText(currentEngine, false);
 }
 
 void WindowComponent::changeLabels(Font& f, const String& text, const String& size)
 {
     // Text Labels
-    float fontSize = 7.0f;
+    float fontSize = 9.0f;
     for (int i = 0; i <  textLabels.size(); ++i)
     {
         f.setSizeAndStyle(fontSize, f.getTypefaceStyle(), f.getHorizontalScale(), 0.0f);
