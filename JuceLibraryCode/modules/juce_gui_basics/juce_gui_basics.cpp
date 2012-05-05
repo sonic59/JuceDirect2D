@@ -79,11 +79,6 @@
   #pragma comment (lib, "QTMLClient.lib")
  #endif
 
- #if JUCE_DIRECT2D && JUCE_MSVC && ! JUCE_DONT_AUTOLINK_TO_WIN32_LIBRARIES
-  #pragma comment (lib, "Dwrite.lib")
-  #pragma comment (lib, "D2d1.lib")
- #endif
-
  #if JUCE_MINGW
   #include <Imm.h>
  #endif
