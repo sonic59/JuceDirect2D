@@ -11,8 +11,8 @@
 
 */
 
-#ifndef __JUCE_APPCONFIG_ZRLJ0S__
-#define __JUCE_APPCONFIG_ZRLJ0S__
+#ifndef __JUCE_APPCONFIG_OAMCPP__
+#define __JUCE_APPCONFIG_OAMCPP__
 
 //==============================================================================
 // [BEGIN_USER_CODE_SECTION]
@@ -27,6 +27,8 @@
 #define JUCE_MODULE_AVAILABLE_juce_events               1
 #define JUCE_MODULE_AVAILABLE_juce_graphics             1
 #define JUCE_MODULE_AVAILABLE_juce_gui_basics           1
+#define JUCE_MODULE_AVAILABLE_juce_gui_extra            1
+#define JUCE_MODULE_AVAILABLE_juce_opengl               1
 
 //==============================================================================
 // juce_core flags:
@@ -77,5 +79,12 @@
  //#define JUCE_USE_XCURSOR
 #endif
 
+//==============================================================================
+// juce_gui_extra flags:
 
-#endif  // __JUCE_APPCONFIG_ZRLJ0S__
+#ifndef    JUCE_WEB_BROWSER
+ //#define JUCE_WEB_BROWSER
+#endif
+
+
+#endif  // __JUCE_APPCONFIG_OAMCPP__

@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{DD9A8054-EF84-7326-06A1-646158E599D8}") = "JuceDirect2D", "JuceDirect2D.vcxproj", "{27FD8161-89C5-1061-DD76-DF68DD7C363F}"
+Project("{DD9A8054-EF84-7326-06A1-646158E599D8}") = "JuceDirect2D", "JuceDirect2D.vcxproj", "{A039FEC3-6129-A07C-3503-6393565C7CE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,10 +8,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27FD8161-89C5-1061-DD76-DF68DD7C363F}.Debug|Win32.ActiveCfg = Debug|Win32
-		{27FD8161-89C5-1061-DD76-DF68DD7C363F}.Debug|Win32.Build.0 = Debug|Win32
-		{27FD8161-89C5-1061-DD76-DF68DD7C363F}.Release|Win32.ActiveCfg = Release|Win32
-		{27FD8161-89C5-1061-DD76-DF68DD7C363F}.Release|Win32.Build.0 = Release|Win32
+		{A039FEC3-6129-A07C-3503-6393565C7CE0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A039FEC3-6129-A07C-3503-6393565C7CE0}.Debug|Win32.Build.0 = Debug|Win32
+		{A039FEC3-6129-A07C-3503-6393565C7CE0}.Release|Win32.ActiveCfg = Release|Win32
+		{A039FEC3-6129-A07C-3503-6393565C7CE0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

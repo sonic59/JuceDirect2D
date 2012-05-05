@@ -10,8 +10,8 @@
 
 */
 
-#ifndef __APPHEADERFILE_ZRLJ0S__
-#define __APPHEADERFILE_ZRLJ0S__
+#ifndef __APPHEADERFILE_OAMCPP__
+#define __APPHEADERFILE_OAMCPP__
 
 #include "AppConfig.h"
 #include "modules/juce_core/juce_core.h"
@@ -19,6 +19,8 @@
 #include "modules/juce_events/juce_events.h"
 #include "modules/juce_graphics/juce_graphics.h"
 #include "modules/juce_gui_basics/juce_gui_basics.h"
+#include "modules/juce_gui_extra/juce_gui_extra.h"
+#include "modules/juce_opengl/juce_opengl.h"
 
 #if ! DONT_SET_USING_JUCE_NAMESPACE
  // If your code uses a lot of JUCE classes, then this will obviously save you
@@ -33,4 +35,4 @@ namespace ProjectInfo
     const int          versionNumber  = 0x10000;
 }
 
-#endif   // __APPHEADERFILE_ZRLJ0S__
+#endif   // __APPHEADERFILE_OAMCPP__

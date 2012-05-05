@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="zrlj0s" name="JuceDirect2D" projectType="guiapp" version="1.0.0"
+<JUCERPROJECT id="OAMcpp" name="JuceDirect2D" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.JuceDirect2D" jucerVersion="3.0.0">
   <EXPORTFORMATS>
     <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="..\juce">
@@ -12,11 +12,11 @@
       </CONFIGURATIONS>
     </VS2010>
   </EXPORTFORMATS>
-  <MAINGROUP id="kkDry3" name="JuceDirect2D">
-    <GROUP id="{D741DE4A-6B41-26EC-6170-35E9CCAA4039}" name="Source">
-      <FILE id="uXeRjw" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
-      <FILE id="n1uelN" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
-      <FILE id="XWBqdL" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+  <MAINGROUP id="GC63wE" name="JuceDirect2D">
+    <GROUP id="{77A35058-6E68-A3D2-BA39-B31D7A5AAA3B}" name="Source">
+      <FILE id="SF7CqQ" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
+      <FILE id="spt718" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
+      <FILE id="DtfjJm" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
@@ -24,8 +24,10 @@
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
-    <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="1"/>
   </MODULES>
   <JUCEOPTIONS/>
 </JUCERPROJECT>
