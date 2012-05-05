@@ -832,11 +832,11 @@ void WindowComponent::changeRenderingEngine(const String& newEngine)
 {
     if ((currentEngine == "OpenGL Renderer") && (newEngine != currentEngine))
     {
-        //openGLContext.detach();
+        openGLContext.detach();
     }
     if ((newEngine == "OpenGL Renderer") && (newEngine != currentEngine))
     {
-        //openGLContext.attachTo (*getTopLevelComponent());
+        openGLContext.attachTo (*getTopLevelComponent());
     }
     if ((newEngine == "Software Renderer") && (newEngine != currentEngine))
     {

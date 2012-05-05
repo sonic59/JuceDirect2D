@@ -65,7 +65,7 @@ private:
     Array<Label*> textLabels;
     Array<Label*> sizeLabels;
     String currentEngine;
-    //OpenGLContext openGLContext;
+    OpenGLContext openGLContext;
     //[/UserVariables]
 
     void changeRenderingEngine(const String& newEngine);
