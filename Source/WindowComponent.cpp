@@ -842,6 +842,10 @@ void WindowComponent::changeRenderingEngine(const String& newEngine)
     {
         getPeer()->setCurrentRenderingEngine (0);
     }
+    if ((newEngine == "Direct2D Renderer") && (newEngine != currentEngine))
+    {
+        getPeer()->setCurrentRenderingEngine (1);
+    }
     lblRenderer->setText(newEngine, false);
 }
 
