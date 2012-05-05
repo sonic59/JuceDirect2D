@@ -64,8 +64,11 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     Array<Label*> textLabels;
     Array<Label*> sizeLabels;
+    String currentEngine;
+    //OpenGLContext openGLContext;
     //[/UserVariables]
 
+    void changeRenderingEngine(const String& newEngine);
     void changeLabels(Font& f, const String& text, const String& size);
     void addTextLabelsToArray();
     void addSizeLabelsToArray();

@@ -109,7 +109,7 @@ WindowComponent::WindowComponent ()
     lblCurrent->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (lblRenderer = new Label (L"new label",
-                                                L"Unknown"));
+                                                L"Software Renderer"));
     lblRenderer->setFont (Font (15.0000f, Font::plain));
     lblRenderer->setJustificationType (Justification::centredLeft);
     lblRenderer->setEditable (false, false, false);
@@ -770,16 +770,19 @@ void WindowComponent::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == cmdRSoftware)
     {
         //[UserButtonCode_cmdRSoftware] -- add your button handler code here..
+        changeRenderingEngine("Software Renderer");
         //[/UserButtonCode_cmdRSoftware]
     }
     else if (buttonThatWasClicked == cmdROpengl)
     {
         //[UserButtonCode_cmdROpengl] -- add your button handler code here..
+        changeRenderingEngine("OpenGL Renderer");
         //[/UserButtonCode_cmdROpengl]
     }
     else if (buttonThatWasClicked == cmdRDirect2d)
     {
         //[UserButtonCode_cmdRDirect2d] -- add your button handler code here..
+        changeRenderingEngine("Direct2D Renderer");
         //[/UserButtonCode_cmdRDirect2d]
     }
     else if (buttonThatWasClicked == cmdLang1)
@@ -825,6 +828,23 @@ void WindowComponent::buttonClicked (Button* buttonThatWasClicked)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void WindowComponent::changeRenderingEngine(const String& newEngine)
+{
+    if ((currentEngine == "OpenGL Renderer") && (newEngine != currentEngine))
+    {
+        //openGLContext.detach();
+    }
+    if ((newEngine == "OpenGL Renderer") && (newEngine != currentEngine))
+    {
+        //openGLContext.attachTo (*getTopLevelComponent());
+    }
+    if ((newEngine == "Software Renderer") && (newEngine != currentEngine))
+    {
+        getPeer()->setCurrentRenderingEngine (0);
+    }
+    lblRenderer->setText(newEngine, false);
+}
+
 void WindowComponent::changeLabels(Font& f, const String& text, const String& size)
 {
     // Text Labels

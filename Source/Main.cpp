@@ -60,7 +60,7 @@ public:
         return true;
     }
 
-    void anotherInstanceStarted (const String& commandLine)
+    void anotherInstanceStarted (const String& /*commandLine*/)
     {
         
     }
