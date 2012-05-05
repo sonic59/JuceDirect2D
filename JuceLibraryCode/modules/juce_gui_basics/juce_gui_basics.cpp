@@ -275,6 +275,9 @@ namespace juce
 #elif JUCE_WINDOWS
  #include "../juce_core/native/juce_win32_ComSmartPtr.h"
  #include "../juce_events/native/juce_win32_HiddenMessageWindow.h"
+#if JUCE_DIRECT2D
+ #include "../juce_graphics/native/juce_win32_Direct2DGraphicsContext.cpp"
+#endif
  #include "native/juce_win32_Windowing.cpp"
  #include "native/juce_win32_DragAndDrop.cpp"
  #include "native/juce_win32_FileChooser.cpp"
