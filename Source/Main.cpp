@@ -26,7 +26,7 @@ public:
     }
 
     //==============================================================================
-    void initialise (const String& commandLine)
+    void initialise (const String& /*commandLine*/)
     {
         // Do your application's initialisation code here..
         mainWindow = new MainAppWindow();

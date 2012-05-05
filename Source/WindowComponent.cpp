@@ -335,6 +335,7 @@ WindowComponent::WindowComponent ()
     lblText18->setEditable (false, false, false);
     lblText18->setColour (TextEditor::textColourId, Colours::black);
     lblText18->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    lblText18->setMinimumHorizontalScale(1.0f);
 
     addAndMakeVisible (lblText19 = new Label (L"new label",
                                               L"The quick brown fox jumps over the lazy dog 0123456789"));
@@ -343,6 +344,7 @@ WindowComponent::WindowComponent ()
     lblText19->setEditable (false, false, false);
     lblText19->setColour (TextEditor::textColourId, Colours::black);
     lblText19->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    lblText19->setMinimumHorizontalScale(1.0f);
 
     addAndMakeVisible (lblText20 = new Label (L"new label",
                                               L"The quick brown fox jumps over the lazy dog 0123456789"));
@@ -351,6 +353,7 @@ WindowComponent::WindowComponent ()
     lblText20->setEditable (false, false, false);
     lblText20->setColour (TextEditor::textColourId, Colours::black);
     lblText20->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    lblText20->setMinimumHorizontalScale(1.0f);
 
     addAndMakeVisible (lblText21 = new Label (L"new label",
                                               L"The quick brown fox jumps over the lazy dog 0123456789"));
@@ -359,6 +362,7 @@ WindowComponent::WindowComponent ()
     lblText21->setEditable (false, false, false);
     lblText21->setColour (TextEditor::textColourId, Colours::black);
     lblText21->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    lblText21->setMinimumHorizontalScale(1.0f);
 
     addAndMakeVisible (lblText22 = new Label (L"new label",
                                               L"The quick brown fox jumps over the lazy dog 0123456789"));
@@ -367,6 +371,7 @@ WindowComponent::WindowComponent ()
     lblText22->setEditable (false, false, false);
     lblText22->setColour (TextEditor::textColourId, Colours::black);
     lblText22->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    lblText22->setMinimumHorizontalScale(1.0f);
 
     addAndMakeVisible (lblText23 = new Label (L"new label",
                                               L"The quick brown fox jumps over the lazy dog 0123456789"));
@@ -375,6 +380,7 @@ WindowComponent::WindowComponent ()
     lblText23->setEditable (false, false, false);
     lblText23->setColour (TextEditor::textColourId, Colours::black);
     lblText23->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    lblText23->setMinimumHorizontalScale(1.0f);
 
     addAndMakeVisible (lblText24 = new Label (L"new label",
                                               L"The quick brown fox jumps over the lazy dog 0123456789"));
@@ -383,6 +389,7 @@ WindowComponent::WindowComponent ()
     lblText24->setEditable (false, false, false);
     lblText24->setColour (TextEditor::textColourId, Colours::black);
     lblText24->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    lblText24->setMinimumHorizontalScale(1.0f);
 
     addAndMakeVisible (lbl24 = new Label (L"new label",
                                           L"24"));
@@ -541,6 +548,8 @@ WindowComponent::WindowComponent ()
 
 
     //[Constructor] You can add your own custom stuff here..
+    addTextLabelsToArray();
+    addSizeLabelsToArray();
     //[/Constructor]
 }
 
@@ -776,11 +785,21 @@ void WindowComponent::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == cmdLang1)
     {
         //[UserButtonCode_cmdLang1] -- add your button handler code here..
+        // English
+        Font f;
+        String text("The quick brown fox jumps over the lazy dog 0123456789");
+        String size("Size");
+        changeLabels(f, text, size);
         //[/UserButtonCode_cmdLang1]
     }
     else if (buttonThatWasClicked == cmdLang2)
     {
         //[UserButtonCode_cmdLang2] -- add your button handler code here..
+        // Chinese
+        Font f("MS Gothic", "Regular", 7.0f);
+        String text(CharPointer_UTF8 ("\xe6\x9c\xac\xe9\xa0\x81\xe9\x9d\xa2\xe6\x98\xaf\xe9\x87\x9d\xe5\xb0\x8d\xe4\xb8\x80\xe8\x88\xac\xe5\x8f\x83\xe8\xa8\xaa\xe8\x80\x85\xe7\x9a\x84\xe3\x80\x8c\xe7\xb6\xad\xe5\x9f\xba\xe7\x99\xbe\xe7\xa7\x91\xe3\x80\x8d\xe8\xa8\x88\xe7\x95\xab\xe4\xbb\x8b\xe7\xb4\xb9\xef\xbc\x8c\xe5\x8f\xa6\xe5\x8f\xaf\xe5\x8f\x83\xe8\xa6\x8b\xe9\xa0\x81\xe9\x9d\xa2\xe3\x80\x8c\xe7\xb6\xad\xe5\x9f\xba\xe7\x99\xbe\xe7\xa7\x91\xe3\x80\x8d"));
+        String size(CharPointer_UTF8 ("\xe5\xa4\xa7\xe5\xb0\x8f"));
+        changeLabels(f, text, size);
         //[/UserButtonCode_cmdLang2]
     }
     else if (buttonThatWasClicked == cmdLang3)
@@ -806,6 +825,66 @@ void WindowComponent::buttonClicked (Button* buttonThatWasClicked)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void WindowComponent::changeLabels(Font& f, const String& text, const String& size)
+{
+    // Text Labels
+    float fontSize = 7.0f;
+    for (int i = 0; i <  textLabels.size(); ++i)
+    {
+        f.setSizeAndStyle(fontSize, f.getTypefaceStyle(), f.getHorizontalScale(), 0.0f);
+        textLabels[i]->setFont(f);
+        textLabels[i]->setText(text, false);
+        fontSize += 1.0f;
+    }
+    // Size Labels
+    fontSize = 7.0f;
+    for (int i = 0; i < sizeLabels.size(); ++i)
+    {
+        f.setSizeAndStyle(fontSize, f.getTypefaceStyle(), f.getHorizontalScale(), 0.0f);
+        sizeLabels[i]->setFont(f);
+        sizeLabels[i]->setText(size + " " + String(fontSize), false);
+        if (i % 2 == 0) sizeLabels[i]->setText(sizeLabels[i]->getText() + ".0", false);
+        fontSize += 0.5f;
+    }
+}
+
+void WindowComponent::addTextLabelsToArray()
+{
+    textLabels.add(lblText9);
+    textLabels.add(lblText10);
+    textLabels.add(lblText11);
+    textLabels.add(lblText12);
+    textLabels.add(lblText13);
+    textLabels.add(lblText14);
+    textLabels.add(lblText15);
+    textLabels.add(lblText16);
+    textLabels.add(lblText17);
+    textLabels.add(lblText18);
+    textLabels.add(lblText19);
+    textLabels.add(lblText20);
+    textLabels.add(lblText21);
+    textLabels.add(lblText22);
+    textLabels.add(lblText23);
+    textLabels.add(lblText24);
+}
+
+void WindowComponent::addSizeLabelsToArray()
+{
+    sizeLabels.add(lblSize70);
+    sizeLabels.add(lblSize75);
+    sizeLabels.add(lblSize80);
+    sizeLabels.add(lblSize85);
+    sizeLabels.add(lblSize90);
+    sizeLabels.add(lblSize95);
+    sizeLabels.add(lblSize100);
+    sizeLabels.add(lblSize105);
+    sizeLabels.add(lblSize110);
+    sizeLabels.add(lblSize115);
+    sizeLabels.add(lblSize120);
+    sizeLabels.add(lblSize125);
+    sizeLabels.add(lblSize130);
+    sizeLabels.add(lblSize135);
+}
 //[/MiscUserCode]
 
 
