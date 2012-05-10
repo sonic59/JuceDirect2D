@@ -550,6 +550,12 @@ WindowComponent::WindowComponent ()
     //[Constructor] You can add your own custom stuff here..
     addTextLabelsToArray();
     addSizeLabelsToArray();
+    asDirect.setText("Fast Path Text Layout");
+    Font f(20.0f);
+    asDirect.setFont(f);
+    asTextLayout.setText("Standard Text Layout");
+    asTextLayout.setFont(f);
+    textLayout.createLayout(asTextLayout, 500.0f);
     //[/Constructor]
 }
 
@@ -661,6 +667,10 @@ void WindowComponent::paint (Graphics& g)
     g.fillPath (internalPath6);
 
     //[UserPaint] Add your own custom painting code here..
+    Rectangle <float> rectDirect(8, 540, 500, 30);
+    asDirect.draw(g, rectDirect);
+    Rectangle <float> rectTextLayout(8, 570, 500, 30);
+    textLayout.draw(g, rectTextLayout);
     //[/UserPaint]
 }
 

@@ -19,7 +19,7 @@ MainAppWindow::MainAppWindow()
 {
     windowComp = new WindowComponent();
     this->setContentNonOwned(windowComp, false);
-    this->centreWithSize(870, 560);
+    this->centreWithSize(870, 660);
     this->setVisible (true);
 }
 
