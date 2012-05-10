@@ -2048,6 +2048,9 @@
     <ClInclude Include="..\..\Source\WindowComponent.h">
       <Filter>JuceDirect2D\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_graphics\native\juce_win32_Direct2DGraphicsContext.h">
+      <Filter>Juce Modules\juce_graphics\native</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc">
