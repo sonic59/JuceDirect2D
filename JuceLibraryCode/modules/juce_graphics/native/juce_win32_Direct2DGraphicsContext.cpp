@@ -307,7 +307,12 @@ void Direct2DLowLevelGraphicsContext::drawGlyph (int glyphNumber, const AffineTr
 
 bool Direct2DLowLevelGraphicsContext::drawTextLayout (const AttributedString& text, const Rectangle<float>& area)
 {
-    return false;
+    const Direct2DFactories& factories = Direct2DFactories::getInstance();
+    const float x = (float) currentState->origin.getX();
+    const float y = (float) currentState->origin.getY();
+    Rectangle<float>  newArea(area.getX() + x, area.getY() + y, area.getWidth(), area.getHeight());
+    DirectWriteTypeLayout::drawToD2DContext (text, newArea, renderingTarget, factories.directWriteFactory, factories.d2dFactory, factories.systemFonts);
+    return true;
 }
 
 //==============================================================================

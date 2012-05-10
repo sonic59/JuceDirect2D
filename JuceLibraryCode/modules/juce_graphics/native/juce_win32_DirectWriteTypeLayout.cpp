@@ -263,7 +263,7 @@ namespace DirectWriteTypeLayout
         }
     }
 
-    void setupLayout (const AttributedString& text, const float& width, ID2D1RenderTarget* const renderTarget, 
+    void setupLayout (const AttributedString& text, const float& maxWidth, const float& maxHeight, ID2D1RenderTarget* const renderTarget, 
                        IDWriteFactory* const directWriteFactory, IDWriteFontCollection* const fontCollection, 
                        IDWriteTextLayout** dwTextLayout)
     {
@@ -297,8 +297,8 @@ namespace DirectWriteTypeLayout
         const int textLen = text.getText().length();
 
         hr = directWriteFactory->CreateTextLayout (text.getText().toWideCharPointer(), textLen,
-                                                   dwTextFormat, width,
-                                                   1.0e7f, dwTextLayout);
+                                                   dwTextFormat, maxWidth,
+                                                   maxHeight, dwTextLayout);
 
         const int numAttributes = text.getNumAttributes();
 
@@ -322,7 +322,7 @@ namespace DirectWriteTypeLayout
         HRESULT hr = direct2dFactory->CreateDCRenderTarget (&d2dRTProp, renderTarget.resetAndGetPointerAddress());
 
         ComSmartPtr<IDWriteTextLayout> dwTextLayout;
-        setupLayout(text, layout.getWidth(), renderTarget, directWriteFactory, fontCollection, dwTextLayout.resetAndGetPointerAddress());
+        setupLayout(text, layout.getWidth(), 1.0e7f, renderTarget, directWriteFactory, fontCollection, dwTextLayout.resetAndGetPointerAddress());
 
         UINT32 actualLineCount = 0;
         hr = dwTextLayout->GetLineMetrics (nullptr, 0, &actualLineCount);
@@ -346,6 +346,19 @@ namespace DirectWriteTypeLayout
         }
     }
 
+    void drawToD2DContext (const AttributedString& text, const Rectangle<float>& area, ID2D1RenderTarget* const renderTarget, 
+        IDWriteFactory* const directWriteFactory, ID2D1Factory* const direct2dFactory, 
+        IDWriteFontCollection* const fontCollection)
+    {
+        ComSmartPtr<IDWriteTextLayout> dwTextLayout;
+        setupLayout(text, area.getWidth(), area.getHeight(), renderTarget, directWriteFactory, fontCollection, dwTextLayout.resetAndGetPointerAddress());
+        D2D1_POINT_2F origin = D2D1::Point2F ((float) area.getX(), (float) area.getY());
+        ComSmartPtr<ID2D1SolidColorBrush> d2dBrush;
+        renderTarget->CreateSolidColorBrush (D2D1::ColorF (D2D1::ColorF (0.0f, 0.0f, 0.0f, 1.0f)),
+                                             d2dBrush.resetAndGetPointerAddress());
+        D2D1_DRAW_TEXT_OPTIONS options = D2D1_DRAW_TEXT_OPTIONS_CLIP;
+        renderTarget->DrawTextLayout(origin, dwTextLayout, d2dBrush, options);
+    }
 }
 #endif
 
